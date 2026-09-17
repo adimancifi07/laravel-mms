@@ -1,0 +1,43 @@
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+// Uncomment the import for your frontend framework:
+// import vue from '@vitejs/plugin-vue';
+// import react from '@vitejs/plugin-react';
+// import { svelte } from '@sveltejs/vite-plugin-svelte';
+
+export default defineConfig({
+    build: {
+        outDir: import.meta.dirname + '/../../public/build-$LOWER_NAME$',
+        emptyOutDir: true,
+        manifest: 'manifest.json',
+    },
+    plugins: [
+        laravel({
+            publicDirectory: import.meta.dirname + '/../../public',
+            buildDirectory: 'build-$LOWER_NAME$',
+            hotFile: import.meta.dirname + '/../../storage/vite-$LOWER_NAME$.hot',
+            input: [
+                import.meta.dirname + '/resources/assets/sass/app.scss',
+                import.meta.dirname + '/resources/assets/css/app.css',
+                import.meta.dirname + '/resources/assets/js/app.js'
+            ],
+            refresh: true,
+        }),
+        // Uncomment the plugin for your frontend framework:
+        // vue({
+        //     template: {
+        //         transformAssetUrls: {
+        //             base: null,
+        //             includeAbsolute: false,
+        //         },
+        //     },
+        // }),
+        // react(),
+        // svelte(),
+    ],
+    resolve: {
+        alias: {
+            '@': import.meta.dirname + '/resources/js',
+        },
+    },
+});

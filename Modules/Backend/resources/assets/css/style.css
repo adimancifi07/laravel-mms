@@ -1,0 +1,14 @@
+body {
+	font-size: 30px;
+	color: #333;
+	border-top: 2px solid;
+	background:
+		radial-gradient(circle at 20% 20%, rgba(255, 120, 120, 0.7), transparent 45%),
+		radial-gradient(circle at 80% 80%, rgba(120, 150, 255, 0.7), transparent 45%),
+		#f5f5f5;
+}
+
+.box {
+	font-family: Arial, sans-serif;
+	font-size: 280px;
+}
